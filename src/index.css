@@ -1,0 +1,51 @@
+
+@media (min-width: 550px) { 
+    .Container{
+        gap: 41px;
+    }
+}
+@media (min-width: 800px) { 
+    .App > h1{
+        text-align: center;
+        font-size: 38px;
+        margin: 0;
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+    .Card h1{
+        font-size: 31px;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-bottom: 3px;
+    }
+    .Card h2{
+        font-size: 28px;
+    }
+    .Card p{
+        font-size: 24px;
+    }
+    .ContainerImg p{
+        padding-top: 6px;
+    }
+    .ContainerButton button{
+        font-size: 17px;
+        padding-top: 7px;
+        padding-bottom: 8px;
+        height: 35px;
+    }
+    .form input{
+        height: 19px;
+    }
+    .form button{
+        font-size: 15px;
+        padding-bottom: 7px;
+    }
+    .ClimaInfo{
+        width: 76%;
+        max-width: 700px;
+    }
+    form{
+        width: 85%;
+        max-width: 700px;
+    }
+}
