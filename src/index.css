@@ -1,51 +1,120 @@
 
 @media (min-width: 550px) { 
-    .Container{
-        gap: 41px;
+    .Card .Container{
+        gap: 50px;
+    }
+    .ClimaInfo{
+        max-width: 410px;
+    }
+    .gps{
+        top: 20px;
+        left: 30px;
+    }
+    form{
+        max-width: 410px;
+    }
+    h4{
+        font-size: 25px;
     }
 }
 @media (min-width: 800px) { 
     .App > h1{
         text-align: center;
-        font-size: 38px;
+        font-size: 32px;
         margin: 0;
         padding-top: 28px;
         padding-bottom: 28px;
     }
-    .Card h1{
-        font-size: 31px;
-        font-weight: 600;
-        margin-top: 30px;
-        margin-bottom: 3px;
+    .gps{
+        width: 34px;
+        top: 24px;
+        left: 32px;
+    }
+    .gps i {
+        font-size: 16px;
+    }
+    .ClimaInfo > h2 {
+        font-size: 25px;
     }
     .Card h2{
-        font-size: 28px;
+        font-size: 22px;
+    }
+    .Card h3{
+        font-size: 20px;
     }
     .Card p{
-        font-size: 24px;
-    }
-    .ContainerImg p{
-        padding-top: 6px;
+        font-size: 15px;
     }
     .ContainerButton button{
-        font-size: 17px;
-        padding-top: 7px;
-        padding-bottom: 8px;
-        height: 35px;
-    }
-    .form input{
-        height: 19px;
-    }
-    .form button{
-        font-size: 15px;
-        padding-bottom: 7px;
+        font-size: 14px;
     }
     .ClimaInfo{
-        width: 76%;
-        max-width: 700px;
+        max-width: 450px;
+        padding: 30px 10px;
     }
     form{
-        width: 85%;
-        max-width: 700px;
+        max-width: 450px;
     }
+    h4{
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .Card .Container{
+        gap: 60px;
+    }
+    form{
+        max-width: 480px;
+    }
+    .ClimaInfo{
+        max-width: 480px;
+        padding: 35px 10px;
+    }
+    .gps{
+        top: 25px;
+        left: 33px;
+    }
+    .Card h3{
+        margin: 14px 0px 17px 0px;
+    }
+    .Card p{
+        padding-bottom: 10px;
+    }
+}
+@media (min-width: 1300px) {
+    .gps{
+        width: 36px;
+        top: 25px;
+        left: 33px;
+    }
+    .gps i {
+        font-size: 17px;
+    }
+    .Card .Container{
+        gap: 70px;
+    }
+    .App > h1 {
+        font-size: 35px;
+    }
+    form{
+        max-width: 510px;
+    }
+    .ClimaInfo{
+        max-width: 510px;
+    }
+    .Card h3{
+        margin: 17px 0px 22px 0px;
+    }
+    .Card p{
+        padding-bottom: 10px;
+        font-size: 16px;
+    }
+    h4{
+        font-size: 32px;
+    }
+    .ContainerImg img {
+        width: 85px;
+    }
+    
 }

@@ -1,43 +1,75 @@
-body{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body{
     font-family: 'Montserrat', sans-serif;
+    color: rgb(232, 238, 231);
+}
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+input{
+    border: none;
+    outline: none;
 }
 .App{
-    background: linear-gradient(rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.1)),
-    url("./assets/atardecer.jpg");
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
-    color: rgb(232, 238, 231);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .App > h1{
     text-align: center;
-    font-size: 32px;
-    margin: 0;
-    padding-top: 22px;
-    padding-bottom: 25px;
+    font-size: 30px;
+    padding: 30px 0px;
+    text-shadow: 2px 2px 0 black;
 }
-.ClimaInfo >h1{
+.ClimaInfo > h2{
     text-align: center;
-    font-size: 35px;
+    font-size: 21px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 black;
 }
-/* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://thumbs.dreamstime.com/z/puesta-del-sol-incre%C3%ADblemente-hermosa-sun-lago-o-paisaje-de-la-salida-panorama-naturaleza-cielo-que-sorprende-las-nubes-coloridas-115177001.jpg");*/
 
 .Clima{
     padding-bottom: 40px;
 }
 .ClimaInfo{
-    background-color: rgba(180, 147, 147, 0.267);
-    padding: 0px 20px 30px 20px;
+    background-color: rgb(0 0 0 / 53%);
+    padding: 28px 10px;
     border-radius: 20px;
     width: 90%;
-    box-sizing: border-box;
-    max-width: 600px;
+    max-width: 380px;
+    box-shadow: 0px 0 6px #303030;
+    position: relative;
 }
+.gps{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c6c9d;
+    width: 32px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0px 1px 6px 0px #11597c;
+    transition: background, .4s ease
+}
+.gps i{
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    font-size: 14px;
+}
+
 .ContainerCard{
     display: flex;
     justify-content: center;
@@ -45,83 +77,80 @@ body{
 .ContainerForm{
     width: 90%;
     margin: auto;
-    margin-bottom: 7px;
+    margin-bottom: 24px;
 }
 form{
-    text-align: center;
-    width: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
-    max-width: 600px;
+    max-width: 380px;
+    border-radius: 5px;
+    box-shadow: 0px 0 6px #303030;
 }
 form input{
     width: 90%;
-    display: block;
-    height: 16px;
-    padding: 7px 7px 7px 11px;
-    margin-bottom: 10px;
+    padding: 7px;
     font-size: 14px;
     font-weight: 400;
-    border: none;
-    outline: none;
-    border-top-left-radius: 5px ;
-    border-bottom-left-radius: 5px;
-    border: 1px solid #39c;
-}
-form button{
-    padding: 7px 7px 9px 11px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
+    border-radius: 5px 0px 0px 5px;
     color: white;
-    background-color: #39c;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    cursor: pointer;
+    background-color: rgb(0 0 0 / 53%);
+    height: 32px;
 }
-.Card h1{
-    text-align: center;
-    font-size: 26px;
+
+form button{
+    font-size: 13px;
     font-weight: 600;
-    margin-top: 30px;
-    margin-bottom: 3px;
+    padding: 0px 10px;
+    color: white;
+    background-color: #0d4b6a;
+    border-radius:  0px 5px 5px 0px;
+    transition: background .4s ease;
+}
+h4{
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px 0 black;
 }
 .Card h2{
     text-align: center;
-    font-size: 21px;
+    font-size: 17px;
     font-weight: 600;
+    text-shadow: 2px 2px 0 black;
+}
+.Card h3{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px 0px 15px 0px;
+    text-shadow: 2px 2px 0 black;
 }
 .Card p{
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 600;
     text-align: center;
+    padding-bottom: 8px;
+    text-shadow: 2px 2px 0 black;
 }
 
-.ContainerImg img{
-    width: 75%;
-}   
 .ContainerImg{
     text-align: center;
-    height: 105px;
 }
-.ContainerDescriptionImg p{
-    margin: 0;
-    text-align: center;
+.ContainerImg img{
+    width: 75px;
+    filter: drop-shadow(2px 2px 0px black);
+}   
+
+.Container{
+   display: flex;
+   justify-content: center;
+   gap: 20px;
 }
-.Card .Container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.Card .ContainerInfo p{
-    margin: 0;
-    line-height: 42px;
-}
-.Card .ContainerInfo img{
-    width: 28px;
+.ContainerInfo img{
+    width: 17px;
     color: white;
+    position: relative;
+    top: 4px;
 }
 .ContainerButton{
     display: flex;
@@ -129,15 +158,18 @@ form button{
 }
 
 .ContainerButton button{
-    cursor: pointer;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 5px;
+    font-size: 13px;
     font-weight: 600;
     color: white;
-    background-color: #39c;
-    margin-top: 25px;
+    background-color: #0d4b6a;
+    margin-top: 15px;
+    box-shadow: 0px 1px 6px 0px #11597c;
+    padding: 7px 10px;
+    transition: background .4s ease;
+}
+ button:hover{
+    background-color: #0a819e;
 }
 
 /*---LOADING----*/

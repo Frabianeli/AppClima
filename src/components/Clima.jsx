@@ -1,14 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Card from './Card';
-import Loading from './Loading'
 
-const Clima = () => {
+const Clima = ({searchWeather, setSearchweather}) => {
     
     const [obj, setObj] = useState()
     const [weather, setWeather] = useState()
-    const [searchWeather, setSearchweather] = useState()
-
+    const [isLoading, setIsLoading] = useState(true)
+    
     {/*----- Geolocaton-------*/ }
     useEffect(() => {
 
@@ -46,9 +45,11 @@ const Clima = () => {
     {/*------- Api-Ubicacion En Tiempo Real----*/ }
     useEffect(() => {
         if(obj){
+            setIsLoading(true)
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${key}`)
-                .then(res => setWeather(res.data))
-                .catch(err => console.log(err))
+            .then(res => setWeather(res.data))
+            .catch(err => console.log(err))
+            .finally(() => setIsLoading(false))
         } 
     }, [obj])
 
@@ -58,41 +59,54 @@ const Clima = () => {
     const getSearch = (e) => {
         e.preventDefault()
         let value = e.target.country.value
-        
+        setIsLoading(true)
+        if(value){
             axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${key}`)
                 .then(res => setSearchweather(res.data))
-                .catch( () => alert('No se ha podido encontrar tu ubicacion'))
-        
-        
+                .catch((err) => console.log(err))
+                .finally(() => setIsLoading(false))
+        }
+         Form.reset()
+         setIsLoading(false)
     }  
-    console.log(searchWeather) 
     
-       
+    const prevent = () => {
+        setSearchweather(null)
+        Form.reset()
+    }
 
   return (
-    <div className='Clima'>
+    <div className='Clima' id='clima'>
         <div className='ContainerForm'>
-            <form  onSubmit={getSearch}>
+            <form  onSubmit={getSearch} id="Form">
                 <input type="text"  name='country' placeholder='City'/>
                 <button type='submit'>Search</button>
             </form>
         </div>
         <section className='ContainerCard'>
             <div className='ClimaInfo'>
-                {searchWeather ? 
-                    <Card 
-                        data={searchWeather}    
-                    />
-                :
-                (weather ?
-                    <>
-                        <h1>Real time location</h1>
+                {
+                !searchWeather && weather &&
+                <h2>Real time location</h2>
+                }
+                {
+                    !searchWeather ? 
                         <Card 
                             data={weather}
-                         />
-                    </>
-                    : 
-                    <Loading/>) 
+                            isLoading={isLoading}
+                        />
+                    :
+                       <Card 
+                            data={searchWeather}
+                            isLoading={isLoading}    
+                        />
+                }
+                {
+                    searchWeather
+                    &&
+                    <button className='gps'onClick={prevent}>
+                        <i className="fa-solid fa-location-dot"></i>
+                    </button>
                 }
             </div>
         </section>
